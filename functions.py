@@ -1,4 +1,5 @@
 from statistics import mean
+import numpy as np
 
 
 def distance1(x, y):
@@ -42,4 +43,19 @@ def ard(x, nghbrs):
     densities = [density] * K
 
     return density(x) / ((1 / K) * _sum_func(densities, nghbrs))
+
+
+def var_explained(diagonal, indices):
+    """
+    Calculates the explained variance from the values in the diagonal of the SVD matrix.
+    Note that the indices starts from one, to make the indexing more intuitive wrt. the phrasing in the exam.
+    :param diagonal: values of the diagonal in the SVD matrix
+    :param indices: position of the chosen values in the diagonal (index starting from 1)
+    :return: Explained variance
+    """
+    denom = [d ** 2 for d in diagonal]
+    num = [denom[i-1] for i in indices]
+
+    return sum(num) / sum(denom)
+
 
