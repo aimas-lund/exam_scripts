@@ -1,5 +1,6 @@
 from statistics import mean
 import numpy as np
+from math import exp
 
 
 def distance1(x, y):
@@ -8,6 +9,10 @@ def distance1(x, y):
 
 def distance2(x, y):
     return (x - y) ** 2
+
+
+def sigmoid(x):
+    return 1 / (1 + exp(-x))
 
 
 def _sum_func(func_list, inputs, list_variable=True):
@@ -54,8 +59,9 @@ def var_explained(diagonal, indices):
     :return: Explained variance
     """
     denom = [d ** 2 for d in diagonal]
-    num = [denom[i-1] for i in indices]
+    num = [denom[i - 1] for i in indices]
 
     return sum(num) / sum(denom)
 
-
+# TODO: Implement Jaccard Coefficient
+# TODO: Implement Impurity Gain + Impurity measures
