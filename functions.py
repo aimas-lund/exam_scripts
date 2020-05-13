@@ -43,11 +43,3 @@ def ard(x, nghbrs):
 
     return density(x) / ((1 / K) * _sum_func(densities, nghbrs))
 
-
-o = [1.7, 2.2]
-o1 = [0.9, 2.1]
-o2 = [1.7, 1.8]
-
-neighbours = [o1, o2]
-
-print(ard(o, neighbours))
