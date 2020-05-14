@@ -90,8 +90,3 @@ def jaccard(Z, Q):
 
     return S / ((1 / 2) * N * (N - 1) - D)
 
-
-Z = [1, 1, 2, 2, 2, 3, 3, 3, 3, 3]
-Q = [1, 1, 3, 1, 1, 1, 1, 3, 3, 2]
-
-print(jaccard(Z, Q))
