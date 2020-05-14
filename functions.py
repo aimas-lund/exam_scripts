@@ -15,7 +15,7 @@ def sigmoid(x):
     return 1 / (1 + exp(-x))
 
 
-def _sum_func(func_list, inputs, list_variable=True):
+def sum_func(func_list, inputs, list_variable=True):
     # lambda function that evaluates a function with an argument
     if list_variable:
         evaluate = lambda f, args: f(args)  # in case args should be treated as a list variable
@@ -47,7 +47,7 @@ def ard(x, nghbrs):
     K = len(nghbrs)
     densities = [density] * K
 
-    return density(x) / ((1 / K) * _sum_func(densities, nghbrs))
+    return density(x) / ((1 / K) * sum_func(densities, nghbrs))
 
 
 def var_explained(diagonal, indices):
@@ -63,5 +63,12 @@ def var_explained(diagonal, indices):
 
     return sum(num) / sum(denom)
 
-# TODO: Implement Jaccard Coefficient
+
+def delta(h, k):
+    if h == k:
+        return 1
+
+    return 0
+
+
 # TODO: Implement Impurity Gain + Impurity measures
