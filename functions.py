@@ -44,6 +44,12 @@ def density(x):
 
 
 def ard(x, nghbrs):
+    """
+    Calculates the average relative density between x and its corresponding neightbors
+    :param x: a list of the K distances to the reference point x'. ex. [1.2, 2.1]
+    :param nghbrs: a nested list of distances to each neighbour of the reference point x'. ex. [[1.2, 1.8], [0.9, 2.1]]
+    :return: Average relative density.
+    """
     K = len(nghbrs)
     densities = [density] * K
 
@@ -69,6 +75,5 @@ def delta(h, k):
         return 1
 
     return 0
-
 
 # TODO: Implement Impurity Gain + Impurity measures

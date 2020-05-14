@@ -50,7 +50,7 @@ def k_means(mu, data):
     """
     Given some data and initial means, this method calculates the kmeans clusters and means, performing k-means algo.
     :param mu: list of initial means
-    :param data: list of values
+    :param data: list of values (integers or float)
     :return: list of clustered values and their correpsonding means
     """
     groups = []
@@ -65,6 +65,14 @@ def k_means(mu, data):
 
 
 def jaccard(Z, Q):
+    """
+    Computes the Jaccard similarity between two arrays.
+    The index of the input lists should be the observation, and the value of that index should be an integer,
+    representing the class for that observation
+    :param Z: list of integers, eg. [1, 1, 1, 2, 2, 3]
+    :param Q: list of integers, eg. [1, 3, 1, 2, 3, 3]
+    :return: Jaccard similarity (using the examples above will yield 0.142
+    """
     N = len(Z)
     S_mat = [[0] * N for _ in range(N)]
     D_mat = [[0] * N for _ in range(N)]
@@ -89,4 +97,3 @@ def jaccard(Z, Q):
             j += 1
 
     return S / ((1 / 2) * N * (N - 1) - D)
-
